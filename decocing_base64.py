@@ -3,18 +3,33 @@ import base64
 from io import BytesIO
 
 
-
-def decoding(bs64:str):
+def decode_image(base64_string):
     '''This function is for decoding a Base64 string into an image.'''
+    
     try:
-        image_data = base64.b64decode(bs64)
+       
+        image_data = base64.b64decode(base64_string)
+        
         image = Image.open(BytesIO(image_data))
-        image.save("/home/mmd/vscode/model/SelfMe/captcha/yolov5/picture/picture1.jpg")
-        return("success")
-    except:
-        return("erroooor in decoding")
+        image.save('/home/mmd/vscode/model/solve_captcha/pic/pic.jpg')  
+        return "succes"
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
 
 
-    
 
-    
+
+
+p = '/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAlAJYDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4 Tl5ufo6erx8vP09fb3 Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3 Pn6/9oADAMBAAIRAxEAPwD3 iiigAoqvd28tzEEivJ7Rg2d8IQkj0 dWGPwzxVL7JrUfyQ6tbSRjo11ZF5D9Sjop/BRxjr1IaRhFq7kl9/ Rq0Vhf2h4hg/12iW8yR/fkgvMM4HUqhXqeylvbPes688bvE/lQaFqJlQ5l8xFwiD7x RmPGRnjjcCewOftYdXb10/M2jg6s3aNn6Nf5nXUVyVp47s2af 0YXtY41DLLHFPIp65BzEpBGAfTnrUA IUU0i/Z9Pk8sv5YFwZI3LZxj/VlBz/ece KXtqdr8y 8v z8Ve3I/wCvM7SiuXPje2FvFMNOu9so/d5mtxnPAJ/e5Azjk8cj1FY9r8T91w8d74dv4AMBfKO9iT0yCFxnB7npTdamvtL7xLAYhpy5dF5r/M9Aorzqf4p7pylppIWFgNlxeXIiVc8bmABGAc9GOcevFS23jLV72zaaNd2S6o1ro1zcRMVJXKyBgCMj046dqJVYxdnv5a/kUsur8qnLRP8Arpc9AorxGO/vbiO5S 8UzRwRwM8ivqUD aAOUUJIxLEZwP1q/oXjnRdBtrgQ6mty8867raC2fzD8oBaIEBclzwpIwOnQJUqsn8Kv/XnYqrgqcKbnGqpem33nr9FeVXHiZNXuEczXjSf6pVtb6/iBIJ42x2oBOcjpnt2rsvClxH9na2I1UTnMri9S6dV5xhZZ40J4wdv1wOppwq87sl K/RnHyx5bp6ryZ0dFFFamYUUUUAFQXscEto6XErxRHG50maIjn 8pBHPvU9NMaM6uyKXTO1iOVz1xQJuSXu7mH9miT5LTxHfpGPuwxvFcMPXBdHdu55Jx7AcGdYT93baiJlH3ftWmMZD65YPGn6DjHU8neop6E81frJf A/8ABZiR33iHcUbR7SRVU/vvtZj3kA4 QoduTx1YDPVhyeKtpfELzSXWm2knmxxCSZEmQ5zNKxGCuSSdwwDzgZz29QrlLyw1bRrq4utIiWVXDEZTeACxfayhlbAZnIK7jhiNpwMxNX20O3CNpSjzau29rGBN4p1XWdJks/s6/aPPhAkhSJlx56qNw87qWG3HQ5HIBzWPe3V8dAt1tzrc8zGN5oVktjbxkkMGYBXZctggPjOSc8YrqYfB76rb3F1qJZrhsvapMu1EkLF2YoP4S2BtbccDnk4Dba3uraE6PBplwluZxJtIl4AfeEB2 Uq54LK3I/hzSTa3O6MKCXLFKVpXfZeav iVuljgb 11 wso9SFjdRQLOUYrcRhXKSsdreSqt94ABsjkEjHygYqatrV0jW96y3JchW 2X02SNykAlnHAI4/3mPUAj3K4kvPD j2NvBZi YkrcNtkIyQWY4RHbBYnsetV7Gwu9V1CK9vbb7NFEykR7SoO07lAB5xu2sWIHKKAOCavm0sdMcbG3tJx0V7NO34dzzFU1ee9hvp9Z0Gxm8 ME7RPNHzjcJ5NxlAAyR5jAZCnHAHT6Xo2kXekWVzq2uXErmBAbiXToGt4VCgLGsskLqoXhSN/L7uAzEV1Wu22rXuoLD9jFxpiNHIEQR5dhyQSzjHOOxqPw74cms7d/tsUS4ijjgCqscsZUEElk5G4bc4Y9 mcCuaHNs/v/wCAcdSVGWHXM zte/5pnny DPDC65FDax6vNArrvD2cmWCtmTIWINgfKvHO5weAOe0bRvDLm38mw1szW5H2YeVd/J0 VTJ8qZwBuyu3ggqQCNfSPCsemRkveTSTbQgeItEAvUjaCRliWJPqcjBwa3kUIioMkKMDcxJ/Enk1Cp0XrKF/n/wBYjHXaUJOy87X VjlrMaNYXrXdsuviR23OJIb6RXO0LkqwIJwAMnOMD0Fa3/CSaKvE2p21vJ3iunEMi/VHww9eRyMGtWirjGjG9ovXz/4BwzqRm7yu/n/AMAr2l7bX8RktZlkVW2OB1Ru6sOqsM8g4I71Yqld6PpmoSiW9060uZAu0PNArkD0yR05P51doly/ZM5cv2QoooqSQooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//2XsiTWVzc2FnZSI6IkFuIGVycm9yIGhhcyBvY2N1cnJlZC4ifQ=='
+s = ''
+for i in p :
+    if i == " ":
+        s+='/'
+    else:
+        s+=i
+        
+print(s)
+decode_image(s)
+
+

@@ -17,14 +17,14 @@ def detect(picture_path):
     path_save=path_m['save_path'] # the path to save the processed data.
     run(weights=path_m['model_save'], # model path
     source=picture_path,
-    imgsz=(450,450),
+    imgsz=(480,480),
     conf_thres=0.25,
     save_txt=True,
     save_crop=True,
     project=path_save
     )
     
-  
+    
     path= path_m["load_model"] 
     for file in os.listdir(path):
       my_file=np.loadtxt(os.path.join(path,file))
@@ -35,15 +35,19 @@ def detect(picture_path):
         number_detect += '9' # Because the model detects the number 9 as 10.
       else:
         number_detect+=i
-    # shutil.rmtree('/home/mmd/vscode/model/SelfMe/captcha/yolov5/runs/runs/detect/exp9/exp',ignore_errors=True) #delete folder
+    shutil.rmtree('/home/mmd/vscode/model/exp',ignore_errors=True) #delete folder
+    shutil.rmtree('/home/mmd/vscode/model/solve_captcha/pic/pic.jpg',ignore_errors=True)
     return number_detect
     
     
   except:
+    
+    shutil.rmtree('/home/mmd/vscode/model/exp',ignore_errors=True) #delete folder
+    shutil.rmtree('/home/mmd/vscode/model/solve_captcha/pic/pic.jpg',ignore_errors=True)
     print('eroooor')
     return number_detect 
     
-print(detect('/home/mmd/Captcha.jpg'))  
+# print(detect('/home/mmd/Captcha.jpg'))  
   
 
   

@@ -1,5 +1,5 @@
 import base64
-from solve_captcha.decocing_base64 import decoding
+# from solve_captcha.decocing_base64 import decoding
 
 def Encode_to_base64(path):
     try:
@@ -15,8 +15,9 @@ def Encode_to_base64(path):
         print(f"An error occurred: {e}")
         return None
     
-image_path = '/home/mmd/Documents/New Folder/11394.jpg'
+image_path = '/home/mmd/Captcha.jpg'
 en = Encode_to_base64(image_path)
 print(en)
-decoding(en)
+
+
 
